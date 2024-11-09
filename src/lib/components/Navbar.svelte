@@ -3,7 +3,7 @@
     
   </script>
   
-  <nav class="bg-base-200 py-4">
+  <nav class="bg-base-200 py-4 shadow-lg sticky top-0 z-10">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
         <span class="text-xl font-bold">Aditya Eka Rahmadani</span>

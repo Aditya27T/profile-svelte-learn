@@ -14,6 +14,9 @@
   </svelte:head>
   
   <div class="min-h-screen bg-base-100">
+    <div class="bg-primary text-white p-4 text-center">
+      <p>🚧 This site is under construction. 🚧</p>
+    </div>
     <Navbar />
     <Hero />
     <main class="container mx-auto px-4 py-16">
