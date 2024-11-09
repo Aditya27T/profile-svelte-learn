@@ -30,7 +30,7 @@
         <div class="{loaded ? '' : 'skeleton'} w-64 h-64 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
           {#if loaded}
             <img 
-              src="https://i.ibb.co.com/KXD8QSG/Whats-App-Image-2024-11-05-at-08-50-59.jpg" 
+              src="AditFoto.jpg"
               alt="Profile"
               class="rounded-full"
             />

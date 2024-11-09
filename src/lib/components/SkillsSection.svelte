@@ -21,6 +21,9 @@
         { name: "Linux", color: "bg-yellow-500" },
         { name: "Docker", color: "bg-yellow-500" },
         { name: "Mechine Learning", color: "bg-yellow-500" },
+        { name: "Svelte", color: "bg-yellow-500" },
+        { name: "SolidJs", color: "bg-yellow-500" },
+        { name: "Tailwind CSS", color: "bg-yellow-500" },
       ]
     };
   </script>

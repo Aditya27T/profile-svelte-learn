@@ -1,5 +1,6 @@
 <script>
     let menuOpen = false;
+    
   </script>
   
   <nav class="bg-base-200 py-4">
@@ -22,6 +23,7 @@
           <a href="#about" class="hover:text-primary">About</a>
           <a href="#skills" class="hover:text-primary">Skills</a>
           <a href="#experience" class="hover:text-primary">Experience</a>
+          <a href="#projects" class="hover:text-primary">Projects</a>
           <a href="#cv" class="hover:text-primary">My CV</a>
         </div>
       </div>
