@@ -23,7 +23,7 @@
     });
   </script>
   
-  <div class="hero min-h-[80vh] bg-base-200">
+  <div class="hero min-h-[80vh] bg-base-200 mb-16 py-16">
     <div class="hero-content flex-col lg:flex-row-reverse gap-8">
       <!-- Profile Image -->
       <div class="avatar">
