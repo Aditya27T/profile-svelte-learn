@@ -35,6 +35,9 @@
   }
 </script>
 
+<div class="bg-primary text-white text-center p-2">
+  <p>🚧 This site is under construction 🚧</p>
+</div>
 <nav class="bg-base-200 py-4 sticky top-0 z-50">
   <div class="container mx-auto px-4">
     <div class="flex justify-between items-center">
