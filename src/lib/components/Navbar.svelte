@@ -117,15 +117,6 @@
               </a>
             </li>
           {/each}
-        </ul>  
-        <!-- Desktop menu -->
-        <div class="hidden md:flex space-x-4">
-          <a href="#about" class="hover:text-primary">About</a>
-          <a href="#skills" class="hover:text-primary">Skills</a>
-          <a href="#experience" class="hover:text-primary">Experience</a>
-          <a href="#projects" class="hover:text-primary">Projects</a>
-          <a href="#cv" class="hover:text-primary">My CV</a>
-        </div>
 
       {#if menuOpen}
         <div class="lg:hidden absolute top-full left-0 right-0 bg-base-200 p-4">
