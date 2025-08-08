@@ -1,144 +1,102 @@
 <script>
-const data = {
-  name: "Jane Doe",
-  contactInfo: [
-    { label: "✉️ janedoe@gmail.com", link: "mailto:janedoe@gmail.com" },
-    { label: "🔗 linkedin.com/in/janedoe", link: "https://linkedin.com/in/janedoe" }
-  ],
-  summary: "Management undergraduate student that living under principle of the all hard work definitely paid off. Quickly adapt to the new environment, life-learner person, an open minded individual who loves to collaborate and share new things. Passionate in business analysis, financial management and human resources.",
-  education: [
-    {
-      institution: "University of Airlangga",
-      degree: "Undergraduate, Accounting and Finance",
-      date: "2020 - 2021",
-      details: "Selected as one of the 4 motivated-undergraduate students from Faculty of Economics and Business, Hasanuddin University to take part in student exchange at Airlangga University for 1 semester with subject Capital Market | GPA 4.00"
-    },
-    {
-      institution: "University of Brawijaya",
-      degree: "Undergraduate, Entrepreneurship",
-      date: "2020 - 2021",
-      details: "Selected as one of the 4 motivated-undergraduate students from Faculty of Economics and Business, Hasanuddin University to take part in student exchange at Brawijaya University for 1 semester with subject Family Business | GPA 4.00"
-    },
-    {
-      institution: "University of Hasanuddin",
-      degree: "Undergraduate, Management",
-      date: "2018 - 2021",
-      details: "The 2021 Most Outstanding Student III, Faculty of Economics and Business | GPA 3.89"
-    }
-  ],
-  workExperience: [
-    {
-      position: "Project Lead",
-      company: "Otoritas Jasa Keuangan",
-      date: "Nov 2021 - Dec 2021 (2 months)",
-      details: [
-        "Leading project from Otoritas Jasa Keuangan (OJK) collaborated with Bank Indonesia, BRI Dana Reksa, and GenBI Wilayah Sulawesi Selatan called \"GenBIKu (GenBI Series Bulan Inklusi Keuangan)\"",
-        "Supervised and directing 18 committees from 3 universities: UNHAS, UNM, UINAM",
-        "Successfully held a webinar with total of 150+ participants and 95% rate of participants satisfaction for the speakers and material provided"
-      ]
-    },
-    {
-      position: "QRIS Nasional Volunteer",
-      company: "Central Bank of Indonesia",
-      date: "Sep 2021 - Dec 2021 (4 months)",
-      details: []
-    }
-  ]
-};
+  let data = {
+    name: "Aditya Eka Rahmadani",
+    contactInfo: [
+      { label: "✉️ aditya.eka.2305336@students.um.ac.id", link: "mailto:aditya.eka.2305336@students.um.ac.id" },
+      { label: "🔗 linkedin.com/in/adityaeka", link: "https://linkedin.com/in/adityaeka" }
+    ],
+    summary: "Undergraduate student majoring in Educational-Informatics at Universitas Negeri Malang. Experienced in developing scalable backend services using Node.js and Fastify.",
+    education: [
+      { institution: "SDN 2 Jurug", degree: "Elementary School", date: "2011 - 2017", details: "Elementary School in Ponorogo" },
+      { institution: "MTsN 2 Ponorogo", degree: "Junior High School", date: "2017 - 2020", details: "Junior High School in Ponorogo with major in Islamic Studies" },
+      { institution: "SMK Telkom Purwokerto", degree: "Senior High School", date: "2020 - 2023", details: "Senior High School with major in Software Engineering" },
+      { institution: "Universitas Negeri Malang", degree: "Educational-Informatics", date: "2023 - Now", details: "Educational-Informatics in Universitas Negeri Malang" }
+    ],
+    workExperience: [
+      {
+        position: "Back-End Developer",
+        company: "DBT Telkom",
+        date: "April 2021 - September 2021",
+        details: [
+          "Developed and maintained scalable backend services using Node.js and Fastify",
+          "Implemented microservices architecture"
+        ]
+      }
+    ]
+  };
 
-function printCV() {
-  window.print();
-}
+  function handlePrint() {
+    window.print();
+  }
 </script>
 
-<svelte:head>
-  <title>CV - {data.name}</title>
-  <style>
-    @media print {
-      /* Hide everything except CV content */
-      body > *:not(.cv-content) {
-        display: none !important;
-      }
-      
-      /* Reset margins and padding for print */
-      @page {
-        margin: 2cm;
-      }
-
-      /* Hide the print button when printing */
-      .print-button {
-        display: none !important;
-      }
-
-      /* Ensure page breaks don't occur in the middle of sections */
-      .section {
-        break-inside: avoid;
-      }
-
-      /* Print specific styles */
-      .cv-content {
-        padding: 0 !important;
-        margin: 0 !important;
-      }
+<style>
+  @media print {
+    body * {
+      visibility: hidden;
     }
-  </style>
-</svelte:head>
+    .cv-container, .cv-container * {
+      visibility: visible;
+    }
+    .cv-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+</style>
 
-<div class="cv-content max-w-[850px] mx-auto my-10 p-5 leading-relaxed font-sans bg-white">
-  <div class="section mb-8">
-    <h1 class="text-3xl font-bold mb-4">{data.name}</h1>
-    <div class="flex flex-col sm:flex-row gap-3 sm:gap-8 mb-8">
-      {#each data.contactInfo as contact}
-        <a 
-          href={contact.link} 
-          target="_blank" 
-          class="text-blue-600 no-underline flex items-center gap-1 hover:underline"
-        >
-          {contact.label}
-        </a>
+<div class="cv-container w-full max-w-4xl mx-auto p-8 print:p-0 print:mx-0 print:max-w-none">
+  <div class="p-8 shadow-md print:shadow-none border rounded-lg">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold mb-4">{data.name}</h1>
+      <div class="flex flex-col sm:flex-row gap-4">
+        {#each data.contactInfo as contact}
+          <a href={contact.link} class="text-blue-600 hover:underline print:text-black" target="_blank" rel="noopener noreferrer">
+            {contact.label}
+          </a>
+        {/each}
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold border-b-2 border-black pb-2 mb-4">Summary</h2>
+      <p class="text-gray-700 print:text-black">{data.summary}</p>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold border-b-2 border-black pb-2 mb-4">Education</h2>
+      {#each data.education as edu}
+        <div class="mb-6">
+          <div class="font-bold text-lg">{edu.institution}</div>
+          <div class="text-lg">{edu.degree}</div>
+          <div class="text-gray-600 print:text-black">{edu.date}</div>
+          <div class="text-gray-700 print:text-black">{edu.details}</div>
+        </div>
       {/each}
     </div>
-  </div>
 
-  <div class="section mb-8">
-    <h2 class="text-2xl font-bold mb-5 pb-1 border-b-2 border-black">Summary</h2>
-    <p>{data.summary}</p>
-  </div>
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold border-b-2 border-black pb-2 mb-4">Work Experience</h2>
+      {#each data.workExperience as exp}
+        <div class="mb-6">
+          <div class="font-bold text-lg">{exp.position}</div>
+          <div class="text-lg font-bold">{exp.company}</div>
+          <div class="text-gray-600 print:text-black">{exp.date}</div>
+          {#if exp.details.length}
+            <ul class="list-disc ml-6 mt-2">
+              {#each exp.details as detail}
+                <li class="text-gray-700 print:text-black mb-1">{detail}</li>
+              {/each}
+            </ul>
+          {/if}
+        </div>
+      {/each}
+    </div>
 
-  <div class="section mb-8">
-    <h2 class="text-2xl font-bold mb-5 pb-1 border-b-2 border-black">Education</h2>
-    {#each data.education as edu}
-      <div class="mb-6">
-        <div class="text-lg font-bold mb-1">{edu.institution}</div>
-        <div class="text-base mb-1">{edu.degree}</div>
-        <div class="text-gray-700 mb-1">{edu.date}</div>
-        <div>{edu.details}</div>
-      </div>
-    {/each}
+    <button on:click={handlePrint} class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 print:hidden">
+      Export to PDF
+    </button>
   </div>
-
-  <div class="section mb-8">
-    <h2 class="text-2xl font-bold mb-5 pb-1 border-b-2 border-black">Work Experience</h2>
-    {#each data.workExperience as exp}
-      <div class="mb-6">
-        <div class="font-bold mb-1">{exp.position}</div>
-        <div class="text-lg font-bold">{exp.company}</div>
-        <div class="text-gray-700 mb-1">{exp.date}</div>
-        {#if exp.details.length > 0}
-          <ul class="ml-5 mt-2">
-            {#each exp.details as detail}
-              <li class="mb-1">{detail}</li>
-            {/each}
-          </ul>
-        {/if}
-      </div>
-    {/each}
-  </div>
-
-  <button 
-    on:click={printCV}
-    class="print-button px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-  >
-    Print CV
-  </button>
 </div>
